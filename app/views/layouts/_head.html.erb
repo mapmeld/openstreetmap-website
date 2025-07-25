@@ -12,6 +12,10 @@
   <%= stylesheet_link_tag "leaflet-all", :media => "screen, print" %>
   <%= yield :head %>
   <%= yield :auto_discovery_link_tag %>
+  <style type="text/css">
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100..900&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@100..900&display=swap');
+  </style>
   <%= csrf_meta_tag %>
   <%= csp_meta_tag %>
   <title><%= "#{@title} | " if @title %><%= t "layouts.project_name.title" %></title>

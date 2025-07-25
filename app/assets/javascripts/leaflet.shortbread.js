@@ -3,8 +3,12 @@
 L.OSM.Shortbread = L.MaplibreGL.extend({
   onAdd: function (map) {
     L.MaplibreGL.prototype.onAdd.call(this, map);
+    const locale = Cookies.get("_osm_locale");
     const styleURL = "https://vector.openstreetmap.org/demo/shortbread/" + this.options.styleName;
     this.getMaplibreMap().setStyle(styleURL, {
+      localIdeographFontFamily: ["zh-TW", "zh-HK", "zh-Hant"].includes(locale)
+        ? "Noto Sans TC"
+        : "Noto Sans SC",
       transformStyle: (previousStyle, nextStyle) => ({
         ...nextStyle,
         sprite: [...nextStyle.sprite.map(s => {
